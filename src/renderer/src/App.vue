@@ -10,6 +10,9 @@ interface chatListItem {
   me: boolean
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line no-undef
 const text = ref(localStorage.getItem('key') ? '' : $t('plzSetApi'))
 
 const chatList: Array<chatListItem> = reactive([])
