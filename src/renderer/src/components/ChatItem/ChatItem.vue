@@ -19,8 +19,12 @@ withDefaults(
     >
       <span class="w-10 whitespace-normal break-words text-white">{{ msg }}</span>
     </div>
-    <div class="w-10 ml-2 bg-white/50 rounded-lg dark:bg-gary-500/50">
-      <img class="rounded-lg" src="../../assets/user.png" alt="me" />
+    <div class="w-10 ml-2 rounded-lg">
+      <img
+        class="rounded-lg dark:bg-gary-500/50 bg-white/50"
+        src="../../assets/user.png"
+        alt="me"
+      />
     </div>
   </div>
   <div v-else class="flex w-screen px-2 py-1">

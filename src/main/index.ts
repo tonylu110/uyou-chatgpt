@@ -2,6 +2,8 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import windowsIcon from '../../build/icon.ico?asset'
+import macIcon from '../../build/icon.icns?asset'
 import { MicaBrowserWindow, IS_WINDOWS_11 } from 'mica-electron'
 
 function createWindow(): void {
@@ -15,7 +17,15 @@ function createWindow(): void {
     maximizable: false,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+    ...(process.platform === 'linux'
+      ? { icon }
+      : process.platform === 'win32'
+      ? {
+          icon: windowsIcon
+        }
+      : {
+          icon: macIcon
+        }),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false

@@ -7,11 +7,11 @@
       <slot />
     </div>
     <div class="buttons">
-      <div v-if="cancelButtonShow" class="cancel" @click="emits('cancel')">
+      <div v-if="cancelButtonShow" class="cancel button" @click="emits('cancel')">
         {{ $t('alert.cancel') }}
       </div>
       <div
-        class="return"
+        class="return button"
         :style="{ width: cancelButtonShow ? '' : '100%' }"
         @click="emits('return')"
       >
@@ -89,77 +89,34 @@ onMounted(() => {
 @import url('dialogAnimation.css');
 
 .alert {
-  padding: 0;
-  z-index: 10;
-  background-color: white;
-  width: 300px;
-  border-radius: 9px;
-  box-shadow: 0 5px 20px #00000050;
-  border: 1px solid #999;
-  overflow: hidden;
-  transition: dialog;
-  user-select: none;
-  color: #00000090;
-  -webkit-app-region: no-drag;
+  @apply dark:bg-gray-500/90 dark:border-gray-700 p-0 z-10 bg-white/90 w-[300px] rounded-lg shadow-2xl border-[1px] border-solid border-gray-400 overflow-hidden select-none text-black/70 backdrop-blur-sm;
 }
-.alert .title {
-  -webkit-app-region: drag;
-  border-bottom: 1.5px solid #00000015;
-  padding: 12px;
-  display: flex;
-  background: #00000008;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+
+.title {
+  @apply dark:text-white/70 border-b-[1px] border-solid border-black/10 p-[10px] flex bg-black/5 justify-center items-center font-bold;
 }
-.alert .body {
-  padding: 18px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1.5px solid #00000015;
-  min-height: 3em;
-  justify-content: center;
+
+.body {
+  @apply p-[18px] text-[14px] flex flex-col border-b-[1px] border-solid border-black/10 min-h-[6rem] justify-center;
 }
-.alert .body span {
-  display: block;
-  white-space: pre-wrap;
-  user-select: text;
+
+.body:deep(span) {
+  @apply block whitespace-pre-wrap select-text dark:text-white/70;
 }
-.alert .buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 50px;
-  background: #00000010;
+
+.buttons {
+  @apply flex items-center bg-black/10;
 }
-.alert .buttons div {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
+
+.button {
+  @apply dark:border-gray-700/30 flex-1 h-[100%] flex justify-center items-center text-[15px] font-bold cursor-pointer py-1 m-2 rounded bg-black/5 border-[1px] border-solid border-white/40;
 }
-.alert .buttons div.cancel {
-  border-right: 2px solid #00000010;
+
+.cancel {
+  @apply mr-0 active:bg-black/10 dark:text-white/70;
 }
-.alert .buttons div.cancel:active {
-  background-color: #00000010 !important;
-}
-.alert .buttons div.cancel:hover {
-  background-color: #00000005;
-}
-.alert .buttons div.return {
-  color: #5985eb;
-}
-.alert .buttons div.return:active {
-  background-color: #5985eb !important;
-  color: white;
-}
-.alert .buttons div.return:hover {
-  background-color: #00000005;
+
+.return {
+  @apply text-cyan-500 bg-cyan-500/70 text-white dark:bg-cyan-700/50 active:bg-cyan-600/70 active:dark:bg-cyan-900/50;
 }
 </style>

@@ -1,9 +1,9 @@
 {
   "name": "uyou-chatgpt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Electron application with ChatGPT",
   "main": "./out/main/index.js",
-  "author": "example.com",
+  "author": "Anthony Lu",
   "homepage": "https://www.electronjs.org",
   "scripts": {
     "format": "prettier --write .",

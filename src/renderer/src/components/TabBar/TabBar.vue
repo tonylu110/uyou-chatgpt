@@ -52,7 +52,10 @@ const openInfo = (): void => {
   >
     <div v-if="!isInfo" class="flex items-center w-max">
       <span class="mr-2">Api Key:</span>
-      <input v-model="key" class="border border-2 rounded flex-1" />
+      <input
+        v-model="key"
+        class="border border-2 rounded dark:bg-gray-500/50 dark:text-white dark:border-gray-700/30 p-1"
+      />
     </div>
     <span v-else>create by chatGPT with openai</span>
   </Alert>
