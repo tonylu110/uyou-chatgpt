@@ -1,6 +1,7 @@
 {
   "plzSetApi": "please set Api Key",
   "hello": "Hello, I am ChatGPT, you can enter a question below to ask me",
+  "getting": "Getting...",
   "alert": {
     "hint": "hint",
     "cancel": "Cancel",

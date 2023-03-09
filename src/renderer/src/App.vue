@@ -18,7 +18,7 @@ const text = ref('')
 const chatList: Array<chatListItem> = reactive([
   {
     me: false,
-    msg: t('hello')
+    msg: t('hello') + (localStorage.getItem('key') ? '' : `(${t('plzSetApi')})`)
   }
 ])
 const chat = (): void => {
@@ -29,7 +29,7 @@ const chat = (): void => {
 
   setTimeout(() => {
     body.value.lastElementChild.scrollIntoView()
-    text.value = '获取中...'
+    text.value = t('getting')
   }, 100)
 
   const apiKey = localStorage.getItem('key')
@@ -78,7 +78,11 @@ const chat = (): void => {
     <div
       class="w-screen flex items-center p-2 bg-white/50 dark:bg-gray-500/50 border-t-[1px] border-solid border-black/10 dark:border-gray-400/30"
     >
-      <input v-model="text" class="flex-1 p-2 rounded-lg dark:bg-gray-500/50 dark:text-white" />
+      <input
+        v-model="text"
+        class="flex-1 p-2 rounded-lg dark:bg-gray-500/50 dark:text-white"
+        @keydown.enter="chat"
+      />
       <div
         class="flex items-center justify-center p-2 bg-cyan-500/50 ml-2 rounded-lg active:bg-cyan-500"
         @click="chat"

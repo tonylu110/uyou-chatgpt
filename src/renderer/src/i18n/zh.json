@@ -1,6 +1,7 @@
 {
   "plzSetApi": "请设置Api Key",
   "hello": "你好，我是ChatGPT，你可以在下方输入问题对我提问",
+  "getting": "获取中...",
   "alert": {
     "hint": "提示",
     "cancel": "取消",

@@ -1,4 +1,5 @@
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'highlight.js/styles/atom-one-dark.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './main.css'

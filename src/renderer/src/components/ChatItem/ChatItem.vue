@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VueMarkdown from 'vue-markdown-render'
+import Markdown from 'vue3-markdown-it'
 
 withDefaults(
   defineProps<{
@@ -32,7 +32,7 @@ withDefaults(
       <img class="rounded-lg" src="../../assets/ChatGPT_logo.svg.webp" alt="chatGPT" />
     </div>
     <div class="flex-1 bg-white rounded-lg p-2 overflow-auto h-auto dark:bg-gray-500/50">
-      <vue-markdown :source="msg" class="dark:text-white/70 select-text" />
+      <Markdown :source="msg" class="dark:text-white/70 select-text" />
     </div>
   </div>
 </template>
