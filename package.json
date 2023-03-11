@@ -1,6 +1,6 @@
 {
   "name": "uyou-chatgpt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Electron application with ChatGPT",
   "main": "./out/main/index.js",
   "author": "Anthony Lu",

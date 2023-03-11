@@ -32,8 +32,10 @@ function createWindow(): void {
     }
   })
 
-  if (IS_WINDOWS_11) {
+  if (!IS_WINDOWS_11) {
     mainWindow.setMicaEffect()
+  } else {
+    mainWindow.setCustomEffect(4, '#ffffff', 0.4)
   }
 
   mainWindow.on('ready-to-show', () => {
