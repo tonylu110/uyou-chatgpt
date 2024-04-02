@@ -34,20 +34,14 @@ const chat = (): void => {
 
   const apiKey = localStorage.getItem('key')
 
-  fetch('https://api.openai.com/v1/chat/completions', {
+  fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      messages: [
-        {
-          role: 'user',
-          content: text.value
-        }
-      ],
-      model: 'gpt-3.5-turbo',
+      prompt: text.value,
       max_tokens: 1000,
       temperature: 0
     })
@@ -57,6 +51,13 @@ const chat = (): void => {
       return response.json()
     })
     .then((data) => {
+      if (data.hasOwnProperty!('error')) {
+        text.value = '获取内容失败'
+        setTimeout(() => {
+          text.value = ''
+        }, 1000)
+        return
+      }
       chatList.push({
         me: false,
         msg: data.choices[0].message.content
@@ -65,7 +66,13 @@ const chat = (): void => {
     .then(() => {
       body.value.lastElementChild.scrollIntoView()
     })
-    .catch((error) => console.error(error))
+    .catch((error) => {
+      text.value = '获取内容失败'
+      setTimeout(() => {
+        text.value = ''
+      }, 1000)
+      console.error(error)
+    })
 }
 </script>
 
